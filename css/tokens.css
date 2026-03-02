@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Design Tokens — extracted from Figma variables
+   ========================================================================== */
+
+:root {
+  /* ── Colors ─────────────────────────────────────────────────────────── */
+  --color-primary: #f12d3a;
+  --color-black: #191919;
+  --color-text-secondary: #707070;
+  --color-background: #ffffff;
+  --color-header-transparent: rgba(255, 255, 255, 0.6);
+  --color-divider: #e4e4e4;
+  --color-footer-link: rgba(0, 0, 0, 0.55);
+
+  /* ── Typography — Font Family ───────────────────────────────────────── */
+  --font-family: "Inter", sans-serif;
+
+  /* ── Typography — Heading H1 ────────────────────────────────────────── */
+  --h1-size: 64px;
+  --h1-weight: 700;
+  --h1-line-height: 1.1;
+  --h1-letter-spacing: -1.6px;
+
+  /* ── Typography — Heading H3 ────────────────────────────────────────── */
+  --h3-size: 36px;
+  --h3-weight: 700;
+  --h3-line-height: 1.2;
+  --h3-letter-spacing: -0.72px;
+
+  /* ── Typography — Heading H4 ────────────────────────────────────────── */
+  --h4-size: 24px;
+  --h4-weight: 600;
+  --h4-line-height: 1.2;
+  --h4-letter-spacing: -0.48px;
+
+  /* ── Typography — Heading H5 ────────────────────────────────────────── */
+  --h5-size: 20px;
+  --h5-weight: 600;
+  --h5-line-height: 1.2;
+  --h5-letter-spacing: -0.4px;
+
+  /* ── Typography — Heading H6 ────────────────────────────────────────── */
+  --h6-size: 16px;
+  --h6-weight: 600;
+  --h6-line-height: 1.45;
+  --h6-letter-spacing: -0.08px;
+
+  /* ── Typography — Body 1 ────────────────────────────────────────────── */
+  --body1-size: 20px;
+  --body1-weight: 500;
+  --body1-line-height: 1.45;
+  --body1-letter-spacing: -0.1px;
+
+  /* ── Typography — Body 2 ────────────────────────────────────────────── */
+  --body2-size: 18px;
+  --body2-weight: 500;
+  --body2-line-height: 1.45;
+  --body2-letter-spacing: -0.09px;
+
+  /* ── Typography — Body 3 ────────────────────────────────────────────── */
+  --body3-size: 16px;
+  --body3-weight: 500;
+  --body3-line-height: 1.45;
+  --body3-letter-spacing: -0.08px;
+
+  /* ── Typography — Body 4 ────────────────────────────────────────────── */
+  --body4-size: 14px;
+  --body4-weight: 500;
+  --body4-line-height: 1.45;
+  --body4-letter-spacing: -0.07px;
+
+  /* ── Layout ─────────────────────────────────────────────────────────── */
+  --content-max-width: 1280px;
+  --content-padding: 125px;
+  --header-height: 70px;
+  --card-gap: 48px;
+  --card-radius: 10px;
+}

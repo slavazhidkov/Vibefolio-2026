@@ -1,0 +1,423 @@
+/* ==========================================================================
+   Portfolio — Main Stylesheet
+   ========================================================================== */
+
+/* ── Reset & Base ─────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    color: var(--color-black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ── Page wrapper ─────────────────────────────────────────────────────── */
+.page {
+    width: 100%;
+    max-width: var(--content-max-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    max-width: var(--content-max-width);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px var(--content-padding);
+    background: var(--color-header-transparent);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.6);
+}
+
+/* ── Logo ──────────────────────────────────────────────────────────────── */
+.header__brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header__logo {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.header__name {
+    font-size: var(--h5-size);
+    font-weight: var(--h5-weight);
+    line-height: var(--h5-line-height);
+    letter-spacing: var(--h5-letter-spacing);
+    color: var(--color-black);
+    white-space: nowrap;
+}
+
+/* ── Navigation ───────────────────────────────────────────────────────── */
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.header__nav-link {
+    font-size: var(--body3-size);
+    font-weight: var(--body3-weight);
+    line-height: var(--body3-line-height);
+    letter-spacing: var(--body3-letter-spacing);
+    color: var(--color-text-secondary);
+    transition: color 0.2s ease;
+    text-transform: capitalize;
+}
+
+.header__nav-link:hover {
+    color: var(--color-black);
+}
+
+.header__nav-link--active {
+    font-weight: var(--h6-weight);
+    color: var(--color-black);
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+    width: 100%;
+    padding: 120px var(--content-padding) 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.hero__title {
+    font-size: var(--h1-size);
+    font-weight: var(--h1-weight);
+    line-height: var(--h1-line-height);
+    letter-spacing: var(--h1-letter-spacing);
+    color: var(--color-black);
+    max-width: 800px;
+}
+
+.hero__description {
+    font-size: var(--body1-size);
+    font-weight: var(--body1-weight);
+    line-height: var(--body1-line-height);
+    letter-spacing: var(--body1-letter-spacing);
+    color: var(--color-text-secondary);
+    max-width: 1030px;
+}
+
+/* ==========================================================================
+   Project Cards
+   ========================================================================== */
+.projects {
+    width: 100%;
+    padding: 0 var(--content-padding) 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--card-gap);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 300ms ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card__image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 552 / 414;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+}
+
+.card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--card-radius);
+}
+
+.card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    white-space: nowrap;
+}
+
+.card__title {
+    font-size: var(--h5-size);
+    font-weight: var(--h5-weight);
+    line-height: var(--h5-line-height);
+    letter-spacing: var(--h5-letter-spacing);
+    color: var(--color-black);
+}
+
+.card__year {
+    font-size: var(--body3-size);
+    font-weight: var(--body3-weight);
+    line-height: var(--body3-line-height);
+    letter-spacing: var(--body3-letter-spacing);
+    color: var(--color-text-secondary);
+}
+
+.card__description {
+    font-size: var(--body4-size);
+    font-weight: var(--body4-weight);
+    line-height: var(--body4-line-height);
+    letter-spacing: var(--body4-letter-spacing);
+    color: var(--color-text-secondary);
+    height: 40px;
+}
+
+/* ==========================================================================
+   Experience Section
+   ========================================================================== */
+.experience {
+    width: 100%;
+    padding: 40px 120px 120px;
+    overflow: hidden;
+}
+
+.experience__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.experience__heading {
+    font-size: var(--h3-size);
+    font-weight: var(--h3-weight);
+    line-height: var(--h3-line-height);
+    letter-spacing: var(--h3-letter-spacing);
+    color: var(--color-black);
+    padding-bottom: 64px;
+}
+
+.experience__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-divider);
+    transition: transform 300ms ease;
+    cursor: pointer;
+}
+
+.experience__row:hover {
+    transform: translateY(-4px);
+}
+
+.experience__details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.experience__title {
+    font-size: var(--h4-size);
+    font-weight: var(--h4-weight);
+    line-height: var(--h4-line-height);
+    letter-spacing: var(--h4-letter-spacing);
+    color: var(--color-black);
+}
+
+.experience__description {
+    font-size: var(--body4-size);
+    font-weight: var(--body4-weight);
+    line-height: var(--body4-line-height);
+    letter-spacing: var(--body4-letter-spacing);
+    color: var(--color-text-secondary);
+}
+
+.experience__year {
+    font-size: var(--body2-size);
+    font-weight: var(--body2-weight);
+    line-height: var(--body2-line-height);
+    letter-spacing: var(--body2-letter-spacing);
+    color: var(--color-text-secondary);
+    text-align: right;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+    width: 100%;
+    max-width: var(--content-max-width);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 64px var(--content-padding);
+    height: 162px;
+}
+
+.footer__links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.footer__link {
+    font-size: var(--body3-size);
+    font-weight: var(--body3-weight);
+    line-height: var(--body3-line-height);
+    letter-spacing: var(--body3-letter-spacing);
+    color: var(--color-footer-link);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.footer__link:hover {
+    color: var(--color-black);
+}
+
+/* ==========================================================================
+   Scroll-reveal Animation
+   ========================================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Once the reveal animation finishes, switch to the fast hover transition */
+.card.reveal--visible,
+.experience__row.reveal--visible {
+    transition: transform 300ms ease;
+}
+
+/* ==========================================================================
+   Tablet / Portrait — max-width: 1279px
+   Switches to single-column the moment the viewport is narrower than the
+   desktop container, so cards never shrink.
+   ========================================================================== */
+@media (max-width: 1279px) {
+    .page {
+        max-width: 800px;
+    }
+
+    .header {
+        max-width: 800px;
+        padding: 24px;
+    }
+
+    .header__nav {
+        gap: 32px;
+    }
+
+    .hero {
+        padding: 80px 24px 56px;
+    }
+
+    .hero__title {
+        max-width: none;
+    }
+
+    .hero__description {
+        max-width: none;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 0 24px 32px;
+    }
+
+    .card {
+        gap: 16px;
+    }
+
+    .experience {
+        padding: 96px 24px;
+    }
+
+    .footer {
+        padding: 64px;
+    }
+}
+
+/* ==========================================================================
+   Mobile — max-width: 799px
+   ========================================================================== */
+@media (max-width: 799px) {
+    .header__nav {
+        gap: 24px;
+    }
+
+    .hero {
+        padding: 80px 24px 56px;
+    }
+
+    .projects {
+        padding: 0 24px 32px;
+    }
+
+    .experience {
+        padding: 64px 24px;
+    }
+
+    .footer {
+        padding: 64px 24px;
+    }
+}
