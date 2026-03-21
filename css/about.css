@@ -1,0 +1,163 @@
+/* ==========================================================================
+   About Page — Styles
+   ========================================================================== */
+
+/* ── About Layout ──────────────────────────────────────────────────────── */
+.about-hero {
+    width: 100%;
+    padding: 120px var(--content-padding) 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 756px;
+}
+
+.about-hero__title {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1.1px;
+    color: var(--color-black);
+}
+
+.about-hero__text {
+    font-size: var(--body2-size);
+    font-weight: var(--body2-weight);
+    line-height: var(--body2-line-height);
+    letter-spacing: var(--body2-letter-spacing);
+    color: var(--color-text-secondary);
+}
+
+.about-hero__resume {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+    color: var(--color-black);
+    text-decoration: underline;
+}
+
+.about-hero__portrait {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ── Sections ──────────────────────────────────────────────────────────── */
+.about-section {
+    width: 100%;
+    padding: 60px var(--content-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 88px;
+}
+
+.about-section--values {
+    gap: 24px;
+}
+
+.about-section__title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.72px;
+    color: var(--color-black);
+}
+
+.about-section__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-section__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 24px;
+}
+
+.about-section__item-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+    color: var(--color-black);
+}
+
+.about-section__item-desc {
+    font-size: var(--body2-size);
+    font-weight: var(--body2-weight);
+    line-height: var(--body2-line-height);
+    letter-spacing: var(--body2-letter-spacing);
+    color: var(--color-text-secondary);
+    max-width: 1040px;
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+.footer--about {
+    justify-content: flex-end;
+}
+
+/* ==========================================================================
+   Tablet — max-width: 1279px
+   ========================================================================== */
+@media (max-width: 1279px) {
+    .about-hero {
+        padding: 120px 64px 60px;
+        gap: 80px;
+    }
+
+    .about-hero__portrait {
+        width: 164px;
+        height: 164px;
+    }
+
+    .about-section {
+        padding: 64px;
+    }
+
+    .about-section__item-desc {
+        max-width: none;
+    }
+}
+
+/* ==========================================================================
+   Mobile — max-width: 799px
+   ========================================================================== */
+@media (max-width: 799px) {
+    .about-hero {
+        flex-direction: column-reverse;
+        padding: 80px 24px 40px;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .about-hero__portrait {
+        width: 120px;
+        height: 120px;
+    }
+
+    .about-hero__title {
+        font-size: 32px;
+    }
+
+    .about-section {
+        padding: 40px 24px;
+        gap: 48px;
+    }
+
+    .about-section__title {
+        font-size: 28px;
+    }
+
+    .footer--about {
+        padding: 64px 24px;
+    }
+}

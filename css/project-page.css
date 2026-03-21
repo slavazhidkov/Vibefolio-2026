@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Project Detail Page — Styles
+   ========================================================================== */
+
+/* ── Project Hero ──────────────────────────────────────────────────────── */
+.project-hero {
+    width: 100%;
+    padding: 120px var(--content-padding) 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.project-hero__year {
+    font-size: var(--body4-size);
+    font-weight: var(--body4-weight);
+    line-height: var(--body4-line-height);
+    letter-spacing: var(--body4-letter-spacing);
+    color: var(--color-text-secondary);
+}
+
+.project-hero__title {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1.1px;
+    color: var(--color-black);
+}
+
+.project-hero__description {
+    font-size: var(--body1-size);
+    font-weight: var(--body1-weight);
+    line-height: var(--body1-line-height);
+    letter-spacing: var(--body1-letter-spacing);
+    color: var(--color-text-secondary);
+}
+
+/* ── Project Content — Image Slices ────────────────────────────────────── */
+.project-content {
+    width: 100%;
+    padding: 0 var(--content-padding) 80px;
+}
+
+.project-content__images {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.project-content__slice {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Hero inline links ─────────────────────────────────────────────────── */
+.project-hero__link {
+    text-decoration: underline;
+    color: inherit;
+}
+
+/* ── Credit Union list ─────────────────────────────────────────────────── */
+.project-credit-unions {
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.project-credit-unions__title {
+    font-size: var(--h4-size);
+    font-weight: var(--h4-weight);
+    line-height: var(--h4-line-height);
+    letter-spacing: var(--h4-letter-spacing);
+    color: var(--color-black);
+}
+
+.project-credit-unions__list {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: -0.09px;
+    color: var(--color-text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ── Selected Logos ──────────────────────────────────────────────────────── */
+.project-logos {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+}
+
+.project-logos__item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.project-logos__title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.72px;
+    color: var(--color-black);
+    padding: 64px 0 24px;
+}
+
+.project-logos__image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Footer (project variant) ──────────────────────────────────────────── */
+.footer--project {
+    justify-content: space-between;
+}
+
+.footer__back-to-top {
+    font-family: var(--font-family);
+    font-size: var(--h5-size);
+    font-weight: var(--h5-weight);
+    line-height: var(--h5-line-height);
+    letter-spacing: var(--h5-letter-spacing);
+    color: var(--color-black);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.footer__back-to-top:hover {
+    opacity: 0.7;
+}
+
+/* ── Responsive — Tablet ──────────────────────────────────────────────── */
+@media (max-width: 1279px) {
+    .project-hero {
+        padding: 80px 64px 24px;
+    }
+
+    .project-content {
+        padding: 0 64px 80px;
+    }
+}
+
+/* ── Responsive — Mobile ──────────────────────────────────────────────── */
+@media (max-width: 799px) {
+    .project-hero {
+        padding: 80px 24px 24px;
+    }
+
+    .project-content {
+        padding: 0 24px 64px;
+    }
+}

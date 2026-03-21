@@ -362,12 +362,17 @@ img {
         padding: 24px;
     }
 
+    .footer {
+        max-width: 800px;
+        padding: 64px;
+    }
+
     .header__nav {
         gap: 32px;
     }
 
     .hero {
-        padding: 80px 24px 56px;
+        padding: 80px 64px 56px;
     }
 
     .hero__title {
@@ -381,7 +386,7 @@ img {
     .projects {
         grid-template-columns: 1fr;
         gap: 32px;
-        padding: 0 24px 32px;
+        padding: 0 64px 32px;
     }
 
     .card {
@@ -389,7 +394,7 @@ img {
     }
 
     .experience {
-        padding: 96px 24px;
+        padding: 96px 64px;
     }
 
     .footer {
@@ -401,6 +406,20 @@ img {
    Mobile — max-width: 799px
    ========================================================================== */
 @media (max-width: 799px) {
+    .page {
+        max-width: 375px;
+    }
+
+    .header {
+        max-width: 375px;
+        padding: 24px;
+    }
+
+    .footer {
+        max-width: 375px;
+        padding: 64px 24px;
+    }
+
     .header__nav {
         gap: 24px;
     }
