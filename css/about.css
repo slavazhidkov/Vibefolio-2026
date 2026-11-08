@@ -67,9 +67,13 @@
 }
 
 /* Grey text next to the portrait: 10% narrower than its column (709px of 788px) */
-.about-hero__text,
-.about-strengths {
+.about-hero__text {
     max-width: 90%;
+}
+
+/* Core strengths gets the same width, plus the clipped dot strip (see below) */
+.about-strengths {
+    max-width: calc(90% + var(--strength-dot));
 }
 
 /* 40px + the 24px padding under the last item above = 64px */
@@ -120,12 +124,17 @@
 }
 
 /* ── Core strengths: one line of tags separated by dots ────────────────── */
+/* Each dot sits before its item. The list is shifted left by one dot and that
+   strip is clipped, which hides the dot at the start of every line, so no
+   line starts or ends with a dot however the items wrap. */
 .about-strengths {
+    --strength-dot: 26px;
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 0 calc(var(--strength-dot) * -1);
+    clip-path: inset(0 0 0 var(--strength-dot));
     font-size: var(--body2-size);
     font-weight: var(--body2-weight);
     line-height: var(--body2-line-height);
@@ -133,9 +142,11 @@
     color: var(--color-text-secondary);
 }
 
-.about-strengths__item:not(:last-child)::after {
+.about-strengths__item::before {
     content: "·";
-    margin: 0 10px;
+    display: inline-block;
+    width: var(--strength-dot);
+    text-align: center;
 }
 
 /* ── Experience ────────────────────────────────────────────────────────── */
@@ -203,7 +214,7 @@
     border-radius: 4px;
     overflow: hidden;
     background: var(--color-divider);
-    cursor: zoom-in;
+    cursor: default;
     box-shadow: 0 calc(var(--lift) * 20px) calc(var(--lift) * 40px)
         rgba(0, 0, 0, calc(var(--lift) * 0.225));
 }
@@ -255,7 +266,7 @@
     align-items: center;
     justify-content: center;
     background: rgba(17, 17, 17, 0);
-    cursor: zoom-out;
+    cursor: default;
     transition: background-color 0.35s ease;
 }
 
