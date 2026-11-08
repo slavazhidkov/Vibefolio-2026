@@ -47,88 +47,57 @@ function whenSized(el, callback) {
 
 const CARD_VIDEO_FADE = 300;
 
-// Touch screens: each video plays while at least half its card is visible and
-// pauses when it scrolls away. The thumbnail stays up until the video is
-// actually playing (iOS Low Power Mode blocks autoplay, so it just stays).
-function playCardVideosOnScreen() {
-  const videos = document.querySelectorAll(".card__video");
-  if (!videos.length) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const video = entry.target.querySelector(".card__video");
-        if (entry.isIntersecting) video.play().catch(() => {});
-        else video.pause();
-      });
-    },
-    { threshold: 0.5 }
-  );
-
-  videos.forEach((video) => {
-    video.addEventListener("playing", () => video.classList.add("card__video--visible"));
-    observer.observe(video.closest(".card"));
-  });
-}
-
-// Card videos: on devices with a mouse or trackpad they play on hover; on
-// touch screens, which can't hover, they play while the card is on screen
+// Card videos play while their card is on screen (at least half visible) and
+// pause when it scrolls away. On devices with a mouse or trackpad, hovering a
+// card fades its video out to the still thumbnail and pauses it; moving away
+// resumes it. The thumbnail stays up until a video is actually playing, so
+// where autoplay is blocked (e.g. iOS Low Power Mode) it simply stays.
 function setUpCardVideos() {
-  const canHover = window.matchMedia("(hover: hover)").matches;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const canHover = window.matchMedia("(hover: hover)").matches;
   if (reducedMotion) return;
-  if (!canHover) {
-    playCardVideosOnScreen();
-    return;
-  }
 
   document.querySelectorAll(".card__video").forEach((video) => {
     const card = video.closest(".card");
-    let active = false;
-    let resetTimer;
+    let onScreen = false;
+    let hovered = false;
+    let pauseTimer;
 
-    const show = () => {
-      active = true;
-      clearTimeout(resetTimer);
-      if (!video.paused) video.classList.add("card__video--visible");
-      video.play().catch(() => {});
+    const update = () => {
+      clearTimeout(pauseTimer);
+      if (onScreen && !hovered) {
+        video.play().catch(() => {});
+        if (!video.paused) video.classList.add("card__video--visible");
+      } else {
+        video.classList.remove("card__video--visible");
+        // Pause once the fade back to the thumbnail has finished
+        pauseTimer = setTimeout(() => video.pause(), hovered ? CARD_VIDEO_FADE : 0);
+      }
     };
 
-    const hide = () => {
-      active = false;
-      video.classList.remove("card__video--visible");
-      resetTimer = setTimeout(() => {
-        video.pause();
-        video.currentTime = 0;
-      }, CARD_VIDEO_FADE);
-    };
-
-    // Fade in on "playing", so the thumbnail stays up while the video loads
     video.addEventListener("playing", () => {
-      if (active) video.classList.add("card__video--visible");
+      if (onScreen && !hovered) video.classList.add("card__video--visible");
     });
 
-    card.addEventListener("mouseenter", show);
-    card.addEventListener("mouseleave", hide);
-    card.addEventListener("focusin", show);
-    card.addEventListener("focusout", hide);
+    new IntersectionObserver(
+      ([entry]) => {
+        onScreen = entry.isIntersecting;
+        update();
+      },
+      { threshold: 0.5 }
+    ).observe(card);
+
+    if (!canHover) return;
+    const setHovered = (value) => () => {
+      hovered = value;
+      update();
+    };
+    card.addEventListener("mouseenter", setHovered(true));
+    card.addEventListener("mouseleave", setHovered(false));
+    card.addEventListener("focusin", setHovered(true));
+    card.addEventListener("focusout", setHovered(false));
   });
 }
-
-// Fades the selected nav link in when it changed since the last page (e.g.
-// Work to About). Runs as the script loads, before the page is first drawn.
-(function fadeInNewNavLink() {
-  const active = document.querySelector(".header__nav-link--active");
-  if (!active) return;
-  const current = active.getAttribute("href");
-  try {
-    const previous = sessionStorage.getItem("navLink");
-    if (previous && previous !== current) active.classList.add("header__nav-link--entering");
-    sessionStorage.setItem("navLink", current);
-  } catch (error) {
-    // Storage blocked: skip the fade
-  }
-})();
 
 document.addEventListener("DOMContentLoaded", () => {
   setUpCardVideos();
