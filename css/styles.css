@@ -325,11 +325,12 @@ img {
     color: var(--color-text-secondary);
 }
 
+/* Same size as the years on the project cards */
 .experience__year {
-    font-size: var(--body2-size);
-    font-weight: var(--body2-weight);
-    line-height: var(--body2-line-height);
-    letter-spacing: -0.0162px;
+    font-size: var(--body3-size);
+    font-weight: var(--body3-weight);
+    line-height: var(--body3-line-height);
+    letter-spacing: -0.0128px;
     color: var(--color-text-secondary);
     text-align: right;
     white-space: nowrap;
@@ -478,11 +479,6 @@ img {
 
     .experience__description {
         font-size: 16px;
-    }
-
-    .experience__year {
-        font-size: 16px;
-        letter-spacing: -0.0128px;
     }
 
     .footer {
