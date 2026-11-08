@@ -20,10 +20,10 @@
 }
 
 .project-hero__title {
-    font-size: 44px;
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -1.1px;
+    font-size: var(--h1-size);
+    font-weight: var(--h1-weight);
+    line-height: var(--h1-line-height);
+    letter-spacing: var(--h1-letter-spacing);
     color: var(--color-black);
 }
 
@@ -57,6 +57,11 @@
 .project-hero__link {
     text-decoration: underline;
     color: inherit;
+    transition: color 0.2s ease;
+}
+
+.project-hero__link:hover {
+    color: var(--color-black);
 }
 
 /* ── Credit Union list ─────────────────────────────────────────────────── */
@@ -101,10 +106,10 @@
 }
 
 .project-logos__title {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.72px;
+    font-size: var(--h5-size);
+    font-weight: var(--h5-weight);
+    line-height: var(--h5-line-height);
+    letter-spacing: var(--h5-letter-spacing);
     color: var(--color-black);
     padding: 64px 0 24px;
 }
@@ -120,21 +125,36 @@
     justify-content: space-between;
 }
 
-.footer__back-to-top {
+.footer__actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.footer__back-to-top,
+.footer__next {
     font-family: var(--font-family);
-    font-size: var(--h5-size);
+    font-size: 18px;
     font-weight: var(--h5-weight);
     line-height: var(--h5-line-height);
-    letter-spacing: var(--h5-letter-spacing);
+    letter-spacing: -0.0648px;
     color: var(--color-black);
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
+    white-space: nowrap;
 }
 
-.footer__back-to-top:hover {
+.footer__back-to-top:hover,
+.footer__next:hover {
     opacity: 0.7;
+}
+
+/* The font has no right arrow, so this is the same up arrow turned */
+.footer__next-arrow {
+    display: inline-block;
+    transform: rotate(90deg);
 }
 
 /* ── Responsive — Tablet ──────────────────────────────────────────────── */
@@ -146,6 +166,18 @@
     .project-content {
         padding: 0 64px 80px;
     }
+
+    .footer__back-to-top,
+    .footer__next {
+        font-size: 16px;
+        letter-spacing: -0.0128px;
+    }
+
+    /* Matches the item titles on the About page */
+    .project-logos__title {
+        font-size: 18px;
+        letter-spacing: -0.0648px;
+    }
 }
 
 /* ── Responsive — Mobile ──────────────────────────────────────────────── */
@@ -156,5 +188,231 @@
 
     .project-content {
         padding: 0 24px 64px;
+    }
+
+    .footer--project .footer__links {
+        display: none;
+    }
+
+    .footer__actions {
+        gap: 24px;
+    }
+}
+
+/* ==========================================================================
+   Appointment Manager — video and cropped visuals instead of image slices
+   ========================================================================== */
+.page--appointment .project-hero {
+    padding-bottom: 64px;
+}
+
+.page--appointment .project-hero__year,
+.page--access-short .project-hero__year {
+    letter-spacing: -0.0098px;
+}
+
+.page--appointment .project-hero__description,
+.page--access-short .project-hero__description {
+    letter-spacing: -0.02px;
+}
+
+.appointment {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Slightly oversized video trims the recording's edges */
+.appointment__video {
+    position: relative;
+    width: 368px;
+    max-width: 100%;
+    aspect-ratio: 368 / 725;
+    margin-bottom: 94px;
+    overflow: hidden;
+}
+
+.appointment__video video {
+    position: absolute;
+    top: -0.97%;
+    left: -1.09%;
+    width: 102.45%;
+    height: 101.93%;
+    object-fit: contain;
+}
+
+.appointment__photo {
+    position: relative;
+    width: 1030px;
+    aspect-ratio: 1030 / 771;
+    margin-bottom: 40px;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.appointment__photo img {
+    position: absolute;
+    top: -1.04%;
+    left: -12.33%;
+    width: 113.3%;
+    max-width: none;
+}
+
+.appointment__flow {
+    width: 100%;
+    aspect-ratio: 1280 / 1485;
+    object-fit: cover;
+}
+
+@media (max-width: 1279px) {
+    .page--appointment,
+    .page--appointment .header,
+    .page--access-short,
+    .page--access-short .header {
+        max-width: none;
+    }
+
+    .page--appointment .project-hero {
+        padding: 96px 64px 64px;
+    }
+
+    .page--appointment .project-hero__year,
+    .page--access-short .project-hero__year {
+        font-size: 16px;
+        letter-spacing: -0.0128px;
+    }
+
+    .page--appointment .project-hero__description,
+    .page--access-short .project-hero__description {
+        font-size: 18px;
+        letter-spacing: -0.0162px;
+    }
+
+    .appointment__photo {
+        width: calc(100% - 128px);
+        aspect-ratio: 672 / 772;
+        margin-bottom: 64px;
+    }
+
+    .appointment__photo img {
+        top: -0.6%;
+        left: -42.14%;
+        width: 168.6%;
+    }
+}
+
+@media (max-width: 799px) {
+    .page--appointment .project-hero {
+        padding: 80px 24px 64px;
+    }
+
+    .appointment__availability {
+        display: block;
+    }
+
+    .appointment__video {
+        margin-bottom: 24px;
+    }
+
+    .appointment__photo {
+        width: calc(100% - 48px);
+        aspect-ratio: 342 / 371;
+        margin-bottom: 56px;
+    }
+
+    .appointment__photo img {
+        top: -2.09%;
+        left: -38.75%;
+        width: 165.5%;
+    }
+}
+
+/* ==========================================================================
+   Access Digital overview — short page linking to the full case study
+   ========================================================================== */
+.project-case-link {
+    align-self: flex-start;
+    display: inline-block;
+    font-size: var(--body1-size);
+    font-weight: var(--body1-weight);
+    line-height: var(--body1-line-height);
+    letter-spacing: -0.02px;
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+    /* Opacity and transform keep the scroll fade-in working */
+    transition: color 0.2s ease,
+        opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-case-link:hover {
+    color: var(--color-black);
+}
+
+.project-hero .project-case-link {
+    margin-top: 13px;
+}
+
+.page--access-short .project-content {
+    padding-bottom: 0;
+}
+
+.page--access-short .project-content__images {
+    gap: 64px;
+}
+
+.project-content__images + .project-case-link {
+    margin-top: 32px;
+}
+
+.page--access-short .project-credit-unions {
+    padding: 80px 0 160px;
+}
+
+.page--access-short .project-credit-unions__title {
+    font-size: var(--h5-size);
+    font-weight: var(--h5-weight);
+    line-height: var(--h5-line-height);
+    letter-spacing: var(--h5-letter-spacing);
+}
+
+.page--access-short .project-credit-unions__list {
+    letter-spacing: -0.0162px;
+    gap: 26px;
+}
+
+@media (max-width: 1279px) {
+    .page--access-short .project-hero {
+        padding: 96px 64px 24px;
+    }
+
+    .project-case-link {
+        font-size: 18px;
+        letter-spacing: -0.0162px;
+    }
+
+    .page--access-short .project-credit-unions {
+        padding-bottom: 144px;
+    }
+
+    .page--access-short .project-credit-unions__list {
+        font-size: 16px;
+        letter-spacing: -0.0128px;
+    }
+}
+
+@media (max-width: 799px) {
+    .page--access-short .project-hero {
+        padding: 80px 24px 24px;
+    }
+
+    .page--access-short .project-credit-unions {
+        padding-bottom: 137px;
+    }
+
+    .page--access-short .project-credit-unions__title {
+        font-size: 18px;
+        letter-spacing: -0.0648px;
     }
 }

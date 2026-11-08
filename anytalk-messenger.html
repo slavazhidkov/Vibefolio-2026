@@ -8,12 +8,8 @@
     <meta name="description"
         content="Case study: AnyTalk Messenger — Free and secure messaging app which works across all your devices." />
 
-    <!-- Google Fonts — Inter 500 / 600 / 700 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet" />
-
-    <!-- Stylesheets -->
+<!-- Stylesheets -->
+    <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/project-page.css" />
@@ -31,8 +27,7 @@
          ═══════════════════════════════════════════════════════════════════ -->
         <nav class="header" id="header">
             <a href="index.html" class="header__brand">
-                <img src="assets/logo.svg" alt="Logo" class="header__logo" />
-                <span class="header__name">Slava Zhidkov</span>
+                <img src="assets/logo.svg" alt="Slava Zhidkov" class="header__logo" />
             </a>
             <div class="header__nav">
                 <a href="index.html" class="header__nav-link header__nav-link--active">Work</a>
@@ -43,7 +38,7 @@
         <!-- ═══════════════════════════════════════════════════════════════════
          Hero
          ═══════════════════════════════════════════════════════════════════ -->
-        <section class="project-hero" id="hero">
+        <section class="project-hero reveal" id="hero">
             <span class="project-hero__year">2016</span>
             <h1 class="project-hero__title">AnyTalk Messenger</h1>
             <p class="project-hero__description">
@@ -61,17 +56,17 @@
          ═══════════════════════════════════════════════════════════════════ -->
         <section class="project-content">
             <div class="project-content__images">
-                <img src="assets/anytalk-01-cut01.png" alt="AnyTalk Messenger" class="project-content__slice"
+                <img src="assets/anytalk-01-cut01.png" alt="AnyTalk Messenger" class="project-content__slice reveal"
                     loading="lazy" />
-                <img src="assets/anytalk-01-cut02.png" alt="AnyTalk Messenger" class="project-content__slice"
+                <img src="assets/anytalk-01-cut02.png" alt="AnyTalk Messenger" class="project-content__slice reveal"
                     loading="lazy" />
-                <img src="assets/anytalk-02-cut01.png" alt="AnyTalk Messenger" class="project-content__slice"
+                <img src="assets/anytalk-02-cut01.png" alt="AnyTalk Messenger" class="project-content__slice reveal"
                     loading="lazy" />
-                <img src="assets/anytalk-02-cut02.png" alt="AnyTalk Messenger" class="project-content__slice"
+                <img src="assets/anytalk-02-cut02.png" alt="AnyTalk Messenger" class="project-content__slice reveal"
                     loading="lazy" />
-                <img src="assets/anytalk-icons.png" alt="AnyTalk Messenger" class="project-content__slice"
+                <img src="assets/anytalk-icons.png" alt="AnyTalk Messenger" class="project-content__slice reveal"
                     loading="lazy" />
-                <img src="assets/anytalk-03.png" alt="AnyTalk Messenger" class="project-content__slice"
+                <img src="assets/anytalk-03.png" alt="AnyTalk Messenger" class="project-content__slice reveal"
                     loading="lazy" />
             </div>
         </section>
@@ -81,13 +76,14 @@
        Footer
        ═══════════════════════════════════════════════════════════════════ -->
     <footer class="footer footer--project">
-        <button class="footer__back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to top</button>
+        <div class="footer__actions">
+            <button class="footer__back-to-top">↑ Back to top</button>
+            <a href="coca-cola-sochi.html" class="footer__next">Next project <span class="footer__next-arrow" aria-hidden="true">↑</span></a>
+        </div>
         <nav class="footer__links">
             <a href="https://www.linkedin.com/in/slavazhidkov/" class="footer__link" target="_blank"
                 rel="noopener">LinkedIn</a>
             <a href="mailto:slastradamus@gmail.com" class="footer__link">Email</a>
-            <a href="https://www.instagram.com/slavazhidkov/" class="footer__link" target="_blank"
-                rel="noopener">Instagram</a>
         </nav>
     </footer>
 

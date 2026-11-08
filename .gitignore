@@ -1,0 +1,5 @@
+# macOS Finder files
+.DS_Store
+
+# Saved effects kept locally, not published
+snippets/

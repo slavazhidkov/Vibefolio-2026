@@ -2,6 +2,28 @@
    Design Tokens — extracted from Figma variables
    ========================================================================== */
 
+/*
+  Self-hosted Inter (latin subset, v20).
+  font-display: block matches the live site: text waits briefly for Inter
+  rather than rendering in a system fallback, so every visitor sees Inter.
+*/
+/* Crossfade between pages instead of a hard cut (Chrome, Edge, Safari;
+   only on a served site, not when opening files from disk) */
+@view-transition {
+  navigation: auto;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/inter-latin.woff2") format("woff2");
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: block;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   /* ── Colors ─────────────────────────────────────────────────────────── */
   --color-primary: #f12d3a;
@@ -16,16 +38,16 @@
   --font-family: "Inter", sans-serif;
 
   /* ── Typography — Heading H1 ────────────────────────────────────────── */
-  --h1-size: 64px;
+  --h1-size: 36px;
   --h1-weight: 700;
   --h1-line-height: 1.1;
-  --h1-letter-spacing: -1.6px;
+  --h1-letter-spacing: -0.324px;
 
   /* ── Typography — Heading H3 ────────────────────────────────────────── */
-  --h3-size: 36px;
+  --h3-size: 32px;
   --h3-weight: 700;
   --h3-line-height: 1.2;
-  --h3-letter-spacing: -0.72px;
+  --h3-letter-spacing: -0.2048px;
 
   /* ── Typography — Heading H4 ────────────────────────────────────────── */
   --h4-size: 24px;
@@ -37,7 +59,7 @@
   --h5-size: 20px;
   --h5-weight: 600;
   --h5-line-height: 1.2;
-  --h5-letter-spacing: -0.4px;
+  --h5-letter-spacing: -0.08px;
 
   /* ── Typography — Heading H6 ────────────────────────────────────────── */
   --h6-size: 16px;

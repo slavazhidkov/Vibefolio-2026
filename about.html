@@ -8,12 +8,8 @@
     <meta name="description"
         content="Product designer with over 10 years of experience designing complex, high-impact digital products." />
 
-    <!-- Google Fonts — Inter 500 / 600 / 700 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet" />
-
     <!-- Stylesheets -->
+    <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/about.css" />
@@ -31,8 +27,7 @@
          ═══════════════════════════════════════════════════════════════════ -->
         <nav class="header" id="header">
             <a href="index.html" class="header__brand">
-                <img src="assets/logo.svg" alt="Logo" class="header__logo" />
-                <span class="header__name">Slava Zhidkov</span>
+                <img src="assets/logo.svg" alt="Slava Zhidkov" class="header__logo" />
             </a>
             <div class="header__nav">
                 <a href="index.html" class="header__nav-link">Work</a>
@@ -45,92 +40,459 @@
              Hero Section
              ═══════════════════════════════════════════════════════════════════ -->
             <section class="about-hero reveal">
-                <div class="about-hero__content">
+                <div class="about-hero__intro">
                     <h1 class="about-hero__title">About me</h1>
                     <p class="about-hero__text">
-                        I’m a product designer with over 10 years of experience designing complex, high-impact digital
-                        products that support people in managing finances, information, tasks, and everyday workflows.
-                        My background spans large-scale banking applications used by millions, secure communication
-                        tools, and consumer services – environments where clarity, trust, and efficiency are critical.
+                        I’m a Senior Product Designer with 10+ years of experience, currently at Neugelb Studios
+                        working on Commerzbank’s digital banking services. I’ve worked across startups and large
+                        companies, consumer and B2B products, and teams of very different sizes.
                     </p>
-                    <a href="https://drive.google.com/file/d/1N4j4r5SXSDKYFGmDWdrDZ8zP4lH9md1s/view?usp=sharing"
-                        class="about-hero__resume" target="_blank" rel="noopener">Download résumé ↓</a>
+                    <div class="about-hero__story">
+                        <h2 class="about-section__item-title">How I got here</h2>
+                        <p class="about-hero__text">
+                            My path into product design started outside of digital products. I’ve always been drawn to visual culture and street art, so studying graphic design felt like a natural step. After university I designed posters, then joined a game studio, where I took my first steps in UI design, creating interfaces, icons and illustrations for online games. That work got me interested in how people use digital products, and I moved on to designing mobile, desktop and web apps. That visual background still shapes how I work today.
+                        </p>
+                    </div>
+                    <div class="about-hero__story">
+                        <h2 class="about-section__item-title">Core strengths</h2>
+                        <ul class="about-strengths">
+                            <li class="about-strengths__item">Conversational AI</li>
+                            <li class="about-strengths__item">Banking and fintech</li>
+                            <li class="about-strengths__item">Messaging, video and scheduling</li>
+                            <li class="about-strengths__item">Design systems</li>
+                            <li class="about-strengths__item">Accessibility</li>
+                            <li class="about-strengths__item">AI-powered design workflows</li>
+                        </ul>
+                    </div>
                 </div>
                 <img src="assets/portrait.png" alt="Slava Zhidkov Portrait" class="about-hero__portrait" />
             </section>
 
-            <!-- ═══════════════════════════════════════════════════════════════════
-             Core Strengths
-             ═══════════════════════════════════════════════════════════════════ -->
             <section class="about-section reveal">
-                <h2 class="about-section__title">My core strengths</h2>
+                <h2 class="about-section__title">Experience</h2>
                 <div class="about-section__list">
                     <div class="about-section__item">
-                        <h3 class="about-section__item-title">Fintech & B2B SaaS</h3>
+                        <div class="about-job__heading">
+                            <h3 class="about-section__item-title">Neugelb Studios (Commerzbank)</h3>
+                            <p class="about-job__meta">Senior Product Designer · 2023 – present</p>
+                        </div>
                         <p class="about-section__item-desc">
-                            I have led design for large-scale mobile banking products, including the app of Commerzbank,
-                            one of Germany’s leading banks and Access Digital, a B2B banking platform serving 400+
-                            financial institutions and over 3 million users in the US.
+                            I design Commerzbank’s digital banking services across mobile and web, including the in-app AI assistant, Contracts &amp; Insurances and Appointment Manager. I also interview and mentor designers, and lead the team’s adoption of AI in design.
                         </p>
                     </div>
                     <div class="about-section__item">
-                        <h3 class="about-section__item-title">Video communication & Messaging</h3>
+                        <div class="about-job__heading">
+                            <h3 class="about-section__item-title">Access Softek</h3>
+                            <p class="about-job__meta">Senior Product Designer · 2016 – 2023</p>
+                        </div>
                         <p class="about-section__item-desc">
-                            I’ve worked on features like video chat and chatbots in banking apps, and designed secure
-                            messaging experiences for AnyTalk Messenger across mobile and desktop platforms. I also
-                            created an Appointment Manager enabling video, phone, and on-site meetings that improved
-                            customer support efficiency and reduced operational costs.
+                            Led the redesign of Access Digital, a white-label banking app used by banks and credit unions across the US, including a new cross-platform design system. Also led Video Chat Support from discovery to launch, which became a selling point for banks.
                         </p>
                     </div>
                     <div class="about-section__item">
-                        <h3 class="about-section__item-title">Planning tools</h3>
+                        <div class="about-job__heading">
+                            <h3 class="about-section__item-title">Dog Walk</h3>
+                            <p class="about-job__meta">Product Designer (Contract) · 2019 – 2020</p>
+                        </div>
                         <p class="about-section__item-desc">
-                            I designed various features that help people manage appointments, services, and ongoing
-                            responsibilities. My experience includes calendar and scheduling experiences, coordination
-                            flows, and systems that make complex timelines and constraints feel simple and manageable. I
-                            focus on clarity, cognitive load reduction, and giving users better control over their time
-                            and commitments.
+                            Designed the dog sitter experience for a dog walking and pet sitting service, including calendar, appointment planning and scheduling flows, from research and prototyping to delivery.
                         </p>
                     </div>
                     <div class="about-section__item">
-                        <h3 class="about-section__item-title">Pettech & consumer product experience</h3>
+                        <div class="about-job__heading">
+                            <h3 class="about-section__item-title">AnyTalk Messenger</h3>
+                            <p class="about-job__meta">Product Designer · 2012 – 2016</p>
+                        </div>
                         <p class="about-section__item-desc">
-                            I have hands-on experience in “pettech” through designing the Dog Walk mobile app for dog
-                            walkers, covering the entire journey from ideation to research and delivery.
+                            Led the design of AnyTalk, a secure messenger for mobile and desktop. Defined its visual language and interaction patterns, and shaped a consistent experience across platforms.
                         </p>
                     </div>
                     <div class="about-section__item">
-                        <h3 class="about-section__item-title">Design systems & cross-platform craft</h3>
+                        <div class="about-job__heading">
+                            <h3 class="about-section__item-title">Drimmi</h3>
+                            <p class="about-job__meta">UI Designer · 2010 – 2012</p>
+                        </div>
                         <p class="about-section__item-desc">
-                            I have created and expanded cross-platform design systems, refreshed visual styles, and
-                            updated key app features with new components for consistency and scalability.
+                            Designed interfaces, icon sets and illustrations for the company’s core online games.
                         </p>
                     </div>
+                </div>
+            </section>
+
+            <section class="about-section about-section--values reveal">
+                <h2 class="about-section__title">Outside work</h2>
+                <div class="about-section__list">
                     <div class="about-section__item">
-                        <h3 class="about-section__item-title">Product discovery, UX research & testing</h3>
                         <p class="about-section__item-desc">
-                            I enjoy and actively practice discovery, UX research, usability and unmoderated testing, and
-                            iterative validation to shape clear problem definitions and effective solutions.
+                            In my spare time I enjoy photography and making videos, from shooting to editing, which lets me explore storytelling beyond product design. I also love traveling, and some of my favorite shots come from those trips.
                         </p>
                     </div>
                 </div>
             </section>
 
             <!-- ═══════════════════════════════════════════════════════════════════
-             What I also value
+             Photos
+             To add a photo, copy one <figure> block and change the file, the
+             descriptions and width/height (the photo's real pixel size: the
+             layout and the enlarged view use them). Add a
+             <figcaption class="photo-wall__caption"> after the button for a caption.
              ═══════════════════════════════════════════════════════════════════ -->
-            <section class="about-section about-section--values reveal">
-                <h2 class="about-section__title">What I also value</h2>
-                <div class="about-section__list">
-                    <div class="about-section__item">
-                        <p class="about-section__item-desc">
-                            In my spare time, I enjoy shooting and editing videos, which lets me explore storytelling
-                            beyond product design. I love traveling and discovering new places, cultures, and
-                            perspectives, and I’m always on the lookout for new music and great films. Photography,
-                            cooking, cycling, and snowboarding help me recharge. I also enjoy learning new things and
-                            exploring ideas beyond my day-to-day work.
-                        </p>
-                    </div>
+            <section class="about-photos" aria-label="Photos">
+                <div class="photo-wall">
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: White van parked on a leafy forest road">
+                            <img src="assets/photos/B-02.jpg" width="1080" height="1299" alt="White van parked on a leafy forest road" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Small orange car parked by a cliff under trees">
+                            <img src="assets/photos/B-03.jpg" width="1080" height="1080" alt="Small orange car parked by a cliff under trees" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Ornate banquet hall with chandeliers and round tables">
+                            <img src="assets/photos/C-04.jpg" width="900" height="675" alt="Ornate banquet hall with chandeliers and round tables" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Sunset and a figure reflected in a car's side mirror">
+                            <img src="assets/photos/C-05.jpg" width="1080" height="1080" alt="Sunset and a figure reflected in a car's side mirror" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Red car in a courtyard seen through an arched gateway">
+                            <img src="assets/photos/D-06.jpg" width="1080" height="1350" alt="Red car in a courtyard seen through an arched gateway" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Sandy beach and rocks by the sea">
+                            <img src="assets/photos/E-08.jpg" width="1440" height="1801" alt="Sandy beach and rocks by the sea" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Red train passing through winter fog">
+                            <img src="assets/photos/E-09.jpg" width="640" height="640" alt="Red train passing through winter fog" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Dark tower against a pale sky">
+                            <img src="assets/photos/Z-11.jpg" width="640" height="640" alt="Dark tower against a pale sky" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Winding road at dusk with a car's red tail lights">
+                            <img src="assets/photos/I-12.jpg" width="1080" height="1300" alt="Winding road at dusk with a car's red tail lights" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Rocky coastline with turquoise water and pines">
+                            <img src="assets/photos/K-13.jpg" width="1440" height="1800" alt="Rocky coastline with turquoise water and pines" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Mirrored dome building under a blue sky">
+                            <img src="assets/photos/K-14.jpg" width="640" height="640" alt="Mirrored dome building under a blue sky" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Red and white ferry moored at a pier">
+                            <img src="assets/photos/K-15.jpg" width="1080" height="1349" alt="Red and white ferry moored at a pier" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Colonnade casting striped shadows on a walkway">
+                            <img src="assets/photos/K-16.jpg" width="640" height="640" alt="Colonnade casting striped shadows on a walkway" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Bare tree by a lakeside promenade with mountains">
+                            <img src="assets/photos/K-17.jpg" width="1170" height="1462" alt="Bare tree by a lakeside promenade with mountains" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Curving white concrete structure against a blue sky">
+                            <img src="assets/photos/L-18.jpg" width="1170" height="1170" alt="Curving white concrete structure against a blue sky" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Person walking under a sweeping modern roof">
+                            <img src="assets/photos/L-19.jpg" width="1170" height="1170" alt="Person walking under a sweeping modern roof" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Wave splashing over a walkway with people">
+                            <img src="assets/photos/L-20.jpg" width="1440" height="1800" alt="Wave splashing over a walkway with people" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Tiled floor with blue light reflections">
+                            <img src="assets/photos/L-21.jpg" width="1440" height="1801" alt="Tiled floor with blue light reflections" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: City buildings and mountains seen through a round window">
+                            <img src="assets/photos/M-22.jpg" width="1440" height="1801" alt="City buildings and mountains seen through a round window" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Snowy road through a forest at pink dusk">
+                            <img src="assets/photos/M-23.jpg" width="1080" height="1350" alt="Snowy road through a forest at pink dusk" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Street of old apartment buildings with parked cars">
+                            <img src="assets/photos/M-24.jpg" width="1440" height="1800" alt="Street of old apartment buildings with parked cars" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Person with a bicycle at a waterfront railing under clouds">
+                            <img src="assets/photos/M-25.jpg" width="1080" height="1349" alt="Person with a bicycle at a waterfront railing under clouds" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Truck and car driving through a snowstorm">
+                            <img src="assets/photos/M-26.jpg" width="1080" height="1349" alt="Truck and car driving through a snowstorm" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Orange sunset over a city skyline">
+                            <img src="assets/photos/N-27.jpg" width="1080" height="1080" alt="Orange sunset over a city skyline" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Colourful cliffside town above a beach">
+                            <img src="assets/photos/O-28.jpg" width="1080" height="1350" alt="Colourful cliffside town above a beach" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Concrete interior with a tall window and plants">
+                            <img src="assets/photos/O-29.jpg" width="1080" height="1346" alt="Concrete interior with a tall window and plants" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: City lights at night">
+                            <img src="assets/photos/O-30.jpg" width="1080" height="1080" alt="City lights at night" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Red paraglider among clouds">
+                            <img src="assets/photos/P-31.jpg" width="640" height="640" alt="Red paraglider among clouds" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Towers at dusk reflected on frozen water">
+                            <img src="assets/photos/Z-32.jpg" width="1440" height="1439" alt="Towers at dusk reflected on frozen water" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Looking up at a tall building as a bird flies past">
+                            <img src="assets/photos/P-33.jpg" width="1280" height="848" alt="Looking up at a tall building as a bird flies past" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Aerial view of a river and a winding road in a gorge">
+                            <img src="assets/photos/P-34.jpg" width="1080" height="1349" alt="Aerial view of a river and a winding road in a gorge" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Birds flying over a lake">
+                            <img src="assets/photos/P-35.jpg" width="1080" height="1080" alt="Birds flying over a lake" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Old stone buildings on a sunny street">
+                            <img src="assets/photos/P-37.jpg" width="1080" height="1350" alt="Old stone buildings on a sunny street" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Red ship moored in a harbour">
+                            <img src="assets/photos/P-38.jpg" width="1440" height="1801" alt="Red ship moored in a harbour" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Person sitting on wide white steps">
+                            <img src="assets/photos/P-39.jpg" width="640" height="640" alt="Person sitting on wide white steps" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Looking up at a glass tower beside parking signs">
+                            <img src="assets/photos/S-40.jpg" width="1170" height="1463" alt="Looking up at a glass tower beside parking signs" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Looking up through a canopy of curved poles">
+                            <img src="assets/photos/S-41.jpg" width="1440" height="1800" alt="Looking up through a canopy of curved poles" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Boat on a beach by calm water">
+                            <img src="assets/photos/S-42.jpg" width="1080" height="1350" alt="Boat on a beach by calm water" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Sunlit room with tall paned windows">
+                            <img src="assets/photos/S-43.jpg" width="1440" height="1800" alt="Sunlit room with tall paned windows" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Small boat on a pale, misty sea">
+                            <img src="assets/photos/S-44.jpg" width="640" height="640" alt="Small boat on a pale, misty sea" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Person silhouetted at the shore at dusk">
+                            <img src="assets/photos/T-45.jpg" width="1080" height="1350" alt="Person silhouetted at the shore at dusk" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Airplane on a foggy runway, seen from behind">
+                            <img src="assets/photos/A-46.jpg" width="1080" height="1305" alt="Airplane on a foggy runway, seen from behind" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Road through a pine forest">
+                            <img src="assets/photos/T-47.jpg" width="1080" height="1349" alt="Road through a pine forest" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Sun setting behind rooftops and a spire">
+                            <img src="assets/photos/U-48.jpg" width="1080" height="1349" alt="Sun setting behind rooftops and a spire" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Fern leaves close up">
+                            <img src="assets/photos/U-49.jpg" width="1080" height="1345" alt="Fern leaves close up" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Cantilevered white building against a blue sky">
+                            <img src="assets/photos/U-50.jpg" width="1080" height="1080" alt="Cantilevered white building against a blue sky" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Woman photographing waves on a beach">
+                            <img src="assets/photos/A-51.jpg" width="1080" height="715" alt="Woman photographing waves on a beach" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: White car under an elevated railway">
+                            <img src="assets/photos/V-52.jpg" width="640" height="640" alt="White car under an elevated railway" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Ornate church dome seen from below">
+                            <img src="assets/photos/V-53.jpg" width="1080" height="1350" alt="Ornate church dome seen from below" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Limestone cliffs above the sea">
+                            <img src="assets/photos/V-54.jpg" width="1080" height="1349" alt="Limestone cliffs above the sea" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Coastal cliffs and ocean from a grassy hill">
+                            <img src="assets/photos/V-55.jpg" width="1440" height="1800" alt="Coastal cliffs and ocean from a grassy hill" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Skateboarder in front of a white museum">
+                            <img src="assets/photos/C-56.jpg" width="1440" height="1440" alt="Skateboarder in front of a white museum" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Dog running across green grass">
+                            <img src="assets/photos/B-57.jpg" width="1034" height="1293" alt="Dog running across green grass" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Cat stretching in a sunbeam next to sneakers">
+                            <img src="assets/photos/A-58.jpg" width="1080" height="1348" alt="Cat stretching in a sunbeam next to sneakers" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Snowy village at dusk">
+                            <img src="assets/photos/A-59.jpg" width="1080" height="1080" alt="Snowy village at dusk" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Person standing on a grassy hillside">
+                            <img src="assets/photos/A-60.jpg" width="1080" height="1080" alt="Person standing on a grassy hillside" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Dog standing in a field of dry grass">
+                            <img src="assets/photos/V-01.jpg" width="1080" height="1350" alt="Dog standing in a field of dry grass" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Night road through a forest lit by headlights">
+                            <img src="assets/photos/E-07.jpg" width="1080" height="1080" alt="Night road through a forest lit by headlights" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
+                    <figure class="photo-wall__item reveal">
+                        <button class="photo-wall__frame" type="button" aria-label="Enlarge photo: Power lines over a dam under a cloudy sky">
+                            <img src="assets/photos/G-10.jpg" width="1080" height="1082" alt="Power lines over a dam under a cloudy sky" loading="lazy" />
+                            <span class="photo-wall__glare" aria-hidden="true"></span>
+                        </button>
+                    </figure>
                 </div>
             </section>
         </main>
@@ -139,18 +501,18 @@
     <!-- ═══════════════════════════════════════════════════════════════════
        Footer
        ═══════════════════════════════════════════════════════════════════ -->
-    <footer class="footer footer--about">
+    <footer class="footer footer--about footer--copyright">
+        <p class="footer__copyright">© Slava Zhidkov</p>
         <nav class="footer__links">
             <a href="https://www.linkedin.com/in/slavazhidkov/" class="footer__link" target="_blank"
                 rel="noopener">LinkedIn</a>
             <a href="mailto:slastradamus@gmail.com" class="footer__link">Email</a>
-            <a href="https://www.instagram.com/slavazhidkov/" class="footer__link" target="_blank"
-                rel="noopener">Instagram</a>
         </nav>
     </footer>
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+    <script src="js/photo-wall.js"></script>
 </body>
 
 </html>

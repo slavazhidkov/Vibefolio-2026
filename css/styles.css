@@ -71,22 +71,12 @@ img {
 .header__brand {
     display: flex;
     align-items: center;
-    gap: 8px;
 }
 
 .header__logo {
-    width: 26px;
-    height: 26px;
+    width: 15px;
+    height: 27px;
     flex-shrink: 0;
-}
-
-.header__name {
-    font-size: var(--h5-size);
-    font-weight: var(--h5-weight);
-    line-height: var(--h5-line-height);
-    letter-spacing: var(--h5-letter-spacing);
-    color: var(--color-black);
-    white-space: nowrap;
 }
 
 /* ── Navigation ───────────────────────────────────────────────────────── */
@@ -100,7 +90,7 @@ img {
     font-size: var(--body3-size);
     font-weight: var(--body3-weight);
     line-height: var(--body3-line-height);
-    letter-spacing: var(--body3-letter-spacing);
+    letter-spacing: -0.0128px;
     color: var(--color-text-secondary);
     transition: color 0.2s ease;
     text-transform: capitalize;
@@ -115,15 +105,47 @@ img {
     color: var(--color-black);
 }
 
+/* When the selected link changes, the new one fades from grey to black.
+   main.js adds the class only when it differs from the previous page's. */
+.header__nav-link--entering {
+    animation: nav-link-select 0.4s ease;
+}
+
+@keyframes nav-link-select {
+    from {
+        color: var(--color-text-secondary);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .header__nav-link--entering {
+        animation: none;
+    }
+}
+
 /* ==========================================================================
    Hero
    ========================================================================== */
 .hero {
     width: 100%;
-    padding: 120px var(--content-padding) 80px;
+    padding: 120px var(--content-padding) 60px;
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+.hero__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.hero__name {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.45px;
+    color: var(--color-text-secondary);
 }
 
 .hero__title {
@@ -132,14 +154,13 @@ img {
     line-height: var(--h1-line-height);
     letter-spacing: var(--h1-letter-spacing);
     color: var(--color-black);
-    max-width: 800px;
 }
 
 .hero__description {
     font-size: var(--body1-size);
     font-weight: var(--body1-weight);
     line-height: var(--body1-line-height);
-    letter-spacing: var(--body1-letter-spacing);
+    letter-spacing: -0.02px;
     color: var(--color-text-secondary);
     max-width: 1030px;
 }
@@ -152,7 +173,7 @@ img {
     padding: 0 var(--content-padding) 80px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--card-gap);
+    gap: 60px var(--card-gap);
 }
 
 .card {
@@ -183,6 +204,28 @@ img {
     border-radius: var(--card-radius);
 }
 
+/* Crops in on artwork that has extra margin around the device */
+.card__image--zoomed {
+    transform: scale(1.23);
+    border-radius: 0;
+}
+
+/* Plays over the thumbnail while the card is hovered */
+.card__video {
+    position: absolute;
+    inset: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    max-width: none;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+.card__video--visible {
+    opacity: 1;
+}
+
 .card__info {
     display: flex;
     flex-direction: column;
@@ -208,7 +251,7 @@ img {
     font-size: var(--body3-size);
     font-weight: var(--body3-weight);
     line-height: var(--body3-line-height);
-    letter-spacing: var(--body3-letter-spacing);
+    letter-spacing: -0.0128px;
     color: var(--color-text-secondary);
 }
 
@@ -226,7 +269,7 @@ img {
    ========================================================================== */
 .experience {
     width: 100%;
-    padding: 40px 120px 120px;
+    padding: 70px 120px;
     overflow: hidden;
 }
 
@@ -242,14 +285,14 @@ img {
     line-height: var(--h3-line-height);
     letter-spacing: var(--h3-letter-spacing);
     color: var(--color-black);
-    padding-bottom: 64px;
+    padding-bottom: 32px;
 }
 
 .experience__row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 24px;
+    padding-bottom: 23px;
     border-bottom: 1px solid var(--color-divider);
     transition: transform 300ms ease;
     cursor: pointer;
@@ -267,10 +310,10 @@ img {
 }
 
 .experience__title {
-    font-size: var(--h4-size);
-    font-weight: var(--h4-weight);
-    line-height: var(--h4-line-height);
-    letter-spacing: var(--h4-letter-spacing);
+    font-size: var(--h5-size);
+    font-weight: var(--h5-weight);
+    line-height: var(--h5-line-height);
+    letter-spacing: var(--h5-letter-spacing);
     color: var(--color-black);
 }
 
@@ -286,7 +329,7 @@ img {
     font-size: var(--body2-size);
     font-weight: var(--body2-weight);
     line-height: var(--body2-line-height);
-    letter-spacing: var(--body2-letter-spacing);
+    letter-spacing: -0.0162px;
     color: var(--color-text-secondary);
     text-align: right;
     white-space: nowrap;
@@ -304,6 +347,19 @@ img {
     justify-content: flex-end;
     padding: 64px var(--content-padding);
     height: 162px;
+}
+
+.footer--copyright {
+    justify-content: space-between;
+}
+
+.footer__copyright {
+    font-size: var(--body3-size);
+    font-weight: var(--body3-weight);
+    line-height: var(--body3-line-height);
+    letter-spacing: var(--body3-letter-spacing);
+    color: var(--color-text-secondary);
+    white-space: nowrap;
 }
 
 .footer__links {
@@ -347,23 +403,33 @@ img {
     transition: transform 300ms ease;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 /* ==========================================================================
    Tablet / Portrait — max-width: 1279px
    Switches to single-column the moment the viewport is narrower than the
    desktop container, so cards never shrink.
    ========================================================================== */
 @media (max-width: 1279px) {
+    /* Tablet: full width, like the About page */
     .page {
-        max-width: 800px;
+        max-width: none;
     }
 
+    /* 64px sides so the logo and links line up with the content */
     .header {
-        max-width: 800px;
-        padding: 24px;
+        max-width: none;
+        padding: 24px 64px;
     }
 
     .footer {
-        max-width: 800px;
+        max-width: none;
         padding: 64px;
     }
 
@@ -372,20 +438,18 @@ img {
     }
 
     .hero {
-        padding: 80px 64px 56px;
-    }
-
-    .hero__title {
-        max-width: none;
+        padding: 198px 64px 48px;
     }
 
     .hero__description {
         max-width: none;
+        font-size: 18px;
+        letter-spacing: -0.0162px;
     }
 
     .projects {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 48px;
         padding: 0 64px 32px;
     }
 
@@ -393,8 +457,32 @@ img {
         gap: 16px;
     }
 
+    .card__title {
+        font-size: 18px;
+        letter-spacing: -0.0648px;
+    }
+
+    .card__description {
+        font-size: 16px;
+        height: auto;
+    }
+
     .experience {
-        padding: 96px 64px;
+        padding: 104px 64px 48px;
+    }
+
+    .experience__heading {
+        font-size: 30px;
+        letter-spacing: -0.18px;
+    }
+
+    .experience__description {
+        font-size: 16px;
+    }
+
+    .experience__year {
+        font-size: 16px;
+        letter-spacing: -0.0128px;
     }
 
     .footer {
@@ -406,17 +494,18 @@ img {
    Mobile — max-width: 799px
    ========================================================================== */
 @media (max-width: 799px) {
+    /* Phones: full width with 24px sides, like the About page */
     .page {
-        max-width: 375px;
+        max-width: none;
     }
 
     .header {
-        max-width: 375px;
+        max-width: none;
         padding: 24px;
     }
 
     .footer {
-        max-width: 375px;
+        max-width: none;
         padding: 64px 24px;
     }
 
@@ -425,15 +514,30 @@ img {
     }
 
     .hero {
-        padding: 80px 24px 56px;
+        padding: 80px 24px 40px;
+    }
+
+    .hero__title-line {
+        display: block;
     }
 
     .projects {
         padding: 0 24px 32px;
+        gap: 40px;
     }
 
     .experience {
-        padding: 64px 24px;
+        padding: 72px 24px 16px;
+    }
+
+    .experience__heading {
+        font-size: 26px;
+        letter-spacing: -0.1352px;
+    }
+
+    .experience__title {
+        font-size: 18px;
+        letter-spacing: -0.0648px;
     }
 
     .footer {

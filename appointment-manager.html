@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointment Manager — Slava Zhidkov</title>
+    <meta name="description"
+        content="Case study: Appointment Manager — Reducing friction in how customers connect with their bank." />
+
+<!-- Stylesheets -->
+    <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/project-page.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+    <link rel="shortcut icon" href="assets/logo.svg" />
+</head>
+
+<body>
+
+    <div class="page page--appointment">
+        <!-- ═══════════════════════════════════════════════════════════════════
+         Header
+         ═══════════════════════════════════════════════════════════════════ -->
+        <nav class="header" id="header">
+            <a href="index.html" class="header__brand">
+                <img src="assets/logo.svg" alt="Slava Zhidkov" class="header__logo" />
+            </a>
+            <div class="header__nav">
+                <a href="index.html" class="header__nav-link header__nav-link--active">Work</a>
+                <a href="about.html" class="header__nav-link">About</a>
+            </div>
+        </nav>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         Hero
+         ═══════════════════════════════════════════════════════════════════ -->
+        <section class="project-hero reveal" id="hero">
+            <span class="project-hero__year">2025</span>
+            <h1 class="project-hero__title">Appointment Manager</h1>
+            <p class="project-hero__description">
+                Booking an appointment with your bank shouldn't feel like work. I redesigned the Commerzbank
+                appointment flow to make it easy to schedule video, phone, or in-person consultations — reducing
+                friction for customers and improving advisor availability at the same time.
+                <span class="appointment__availability">Available in the
+                    <a href="https://apps.apple.com/de/app/commerzbank-banking/id366609901" class="project-hero__link"
+                        target="_blank" rel="noopener">Commerzbank app.</a></span>
+            </p>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         Case Study Content
+         ═══════════════════════════════════════════════════════════════════ -->
+        <section class="appointment">
+            <div class="appointment__video reveal">
+                <video src="assets/am-01.mp4" autoplay loop muted playsinline
+                    aria-label="Appointment Manager — Booking an appointment in the Commerzbank app"></video>
+            </div>
+            <div class="appointment__photo reveal">
+                <img src="assets/am-02.png" alt="Appointment Manager — Choosing a consultation topic on a phone"
+                    loading="lazy" />
+            </div>
+            <img src="assets/am-03.png" alt="Appointment Manager — Booking flow screens through to confirmation"
+                class="appointment__flow reveal" loading="lazy" />
+        </section>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+       Footer
+       ═══════════════════════════════════════════════════════════════════ -->
+    <footer class="footer footer--project">
+        <div class="footer__actions">
+            <button class="footer__back-to-top">↑ Back to top</button>
+            <a href="contracts-insurances.html" class="footer__next">Next project <span class="footer__next-arrow" aria-hidden="true">↑</span></a>
+        </div>
+        <nav class="footer__links">
+            <a href="https://www.linkedin.com/in/slavazhidkov/" class="footer__link" target="_blank"
+                rel="noopener">LinkedIn</a>
+            <a href="mailto:slastradamus@gmail.com" class="footer__link">Email</a>
+        </nav>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

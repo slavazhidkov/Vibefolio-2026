@@ -8,12 +8,8 @@
     <meta name="description"
         content="Case study: Windcatcher — Search engine for the best places for wind turbines around the world." />
 
-    <!-- Google Fonts — Inter 500 / 600 / 700 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet" />
-
-    <!-- Stylesheets -->
+<!-- Stylesheets -->
+    <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/project-page.css" />
@@ -31,8 +27,7 @@
          ═══════════════════════════════════════════════════════════════════ -->
         <nav class="header" id="header">
             <a href="index.html" class="header__brand">
-                <img src="assets/logo.svg" alt="Logo" class="header__logo" />
-                <span class="header__name">Slava Zhidkov</span>
+                <img src="assets/logo.svg" alt="Slava Zhidkov" class="header__logo" />
             </a>
             <div class="header__nav">
                 <a href="index.html" class="header__nav-link header__nav-link--active">Work</a>
@@ -43,7 +38,7 @@
         <!-- ═══════════════════════════════════════════════════════════════════
          Hero
          ═══════════════════════════════════════════════════════════════════ -->
-        <section class="project-hero" id="hero">
+        <section class="project-hero reveal" id="hero">
             <span class="project-hero__year">2018</span>
             <h1 class="project-hero__title">Windcatcher</h1>
             <p class="project-hero__description">
@@ -57,10 +52,10 @@
          ═══════════════════════════════════════════════════════════════════ -->
         <section class="project-content">
             <div class="project-content__images">
-                <img src="assets/wc-01.png" alt="Windcatcher" class="project-content__slice" loading="lazy" />
-                <img src="assets/wc-02.png" alt="Windcatcher" class="project-content__slice" loading="lazy" />
-                <img src="assets/wc-03.png" alt="Windcatcher" class="project-content__slice" loading="lazy" />
-                <img src="assets/wc-04.png" alt="Windcatcher" class="project-content__slice" loading="lazy" />
+                <img src="assets/wc-01.png" alt="Windcatcher" class="project-content__slice reveal" loading="lazy" />
+                <img src="assets/wc-02.png" alt="Windcatcher" class="project-content__slice reveal" loading="lazy" />
+                <img src="assets/wc-03.png" alt="Windcatcher" class="project-content__slice reveal" loading="lazy" />
+                <img src="assets/wc-04.png" alt="Windcatcher" class="project-content__slice reveal" loading="lazy" />
             </div>
         </section>
     </div>
@@ -69,13 +64,14 @@
        Footer
        ═══════════════════════════════════════════════════════════════════ -->
     <footer class="footer footer--project">
-        <button class="footer__back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to top</button>
+        <div class="footer__actions">
+            <button class="footer__back-to-top">↑ Back to top</button>
+            <a href="mobile-finance-manager.html" class="footer__next">Next project <span class="footer__next-arrow" aria-hidden="true">↑</span></a>
+        </div>
         <nav class="footer__links">
             <a href="https://www.linkedin.com/in/slavazhidkov/" class="footer__link" target="_blank"
                 rel="noopener">LinkedIn</a>
             <a href="mailto:slastradamus@gmail.com" class="footer__link">Email</a>
-            <a href="https://www.instagram.com/slavazhidkov/" class="footer__link" target="_blank"
-                rel="noopener">Instagram</a>
         </nav>
     </footer>
 

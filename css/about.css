@@ -3,26 +3,30 @@
    ========================================================================== */
 
 /* ── About Layout ──────────────────────────────────────────────────────── */
-.about-hero {
+/* Keeps the content full width; otherwise it shrinks to fit the narrower paragraphs */
+.page--about main {
     width: 100%;
-    padding: 120px var(--content-padding) 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
-.about-hero__content {
+.about-hero {
+    width: 100%;
+    padding: 131px 120px 0;
+    display: grid;
+    grid-template-columns: 788px 166px;
+    justify-content: space-between;
+}
+
+.about-hero__intro {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    max-width: 756px;
 }
 
 .about-hero__title {
-    font-size: 44px;
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -1.1px;
+    font-size: var(--h1-size);
+    font-weight: var(--h1-weight);
+    line-height: var(--h1-line-height);
+    letter-spacing: var(--h1-letter-spacing);
     color: var(--color-black);
 }
 
@@ -30,22 +34,20 @@
     font-size: var(--body2-size);
     font-weight: var(--body2-weight);
     line-height: var(--body2-line-height);
-    letter-spacing: var(--body2-letter-spacing);
+    letter-spacing: -0.0162px;
     color: var(--color-text-secondary);
 }
 
-.about-hero__resume {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.4px;
-    color: var(--color-black);
-    text-decoration: underline;
+.about-hero__story {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .about-hero__portrait {
-    width: 220px;
-    height: 220px;
+    width: 166px;
+    height: 166px;
+    margin-top: 22px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -53,21 +55,34 @@
 /* ── Sections ──────────────────────────────────────────────────────────── */
 .about-section {
     width: 100%;
-    padding: 60px var(--content-padding);
+    padding: 64px 120px 0;
     display: flex;
     flex-direction: column;
-    gap: 88px;
-}
-
-.about-section--values {
     gap: 24px;
 }
 
+/* Paragraphs below the hero match the grey text next to the portrait */
+.about-section__item-desc {
+    max-width: 709px;
+}
+
+/* Grey text next to the portrait: 10% narrower than its column (709px of 788px) */
+.about-hero__text,
+.about-strengths {
+    max-width: 90%;
+}
+
+/* 40px + the 24px padding under the last item above = 64px */
+.about-section--values {
+    padding-top: 40px;
+    padding-bottom: 38px;
+}
+
 .about-section__title {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.72px;
+    font-size: var(--h3-size);
+    font-weight: var(--h3-weight);
+    line-height: var(--h3-line-height);
+    letter-spacing: var(--h3-letter-spacing);
     color: var(--color-black);
 }
 
@@ -84,10 +99,10 @@
 }
 
 .about-section__item-title {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.4px;
+    font-size: var(--h5-size);
+    font-weight: var(--h5-weight);
+    line-height: var(--h5-line-height);
+    letter-spacing: var(--h5-letter-spacing);
     color: var(--color-black);
 }
 
@@ -97,34 +112,318 @@
     line-height: var(--body2-line-height);
     letter-spacing: var(--body2-letter-spacing);
     color: var(--color-text-secondary);
-    max-width: 1040px;
+}
+
+/* Sections after the first: 40px + the 24px padding under the last item = 64px */
+.about-section + .about-section {
+    padding-top: 40px;
+}
+
+/* ── Core strengths: one line of tags separated by dots ────────────────── */
+.about-strengths {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: var(--body2-size);
+    font-weight: var(--body2-weight);
+    line-height: var(--body2-line-height);
+    letter-spacing: var(--body2-letter-spacing);
+    color: var(--color-text-secondary);
+}
+
+.about-strengths__item:not(:last-child)::after {
+    content: "·";
+    margin: 0 10px;
+}
+
+/* ── Experience ────────────────────────────────────────────────────────── */
+.about-job__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.about-job__meta {
+    font-size: var(--body3-size);
+    font-weight: var(--body3-weight);
+    line-height: var(--body3-line-height);
+    letter-spacing: var(--body3-letter-spacing);
+    color: var(--color-text-secondary);
 }
 
 /* ── Footer ────────────────────────────────────────────────────────────── */
+/* Lines the footer up with the page content */
 .footer--about {
-    justify-content: flex-end;
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
+/* ── Photos ────────────────────────────────────────────────────────────── */
+/* The section above already leaves 62px (24px item + 38px padding) */
+.about-photos {
+    width: 100%;
+    padding: 2px 120px 0;
+}
+
+/* Without JavaScript the photos fall back to a simple grid */
+.photo-wall {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 32px;
+}
+
+/* photo-wall.js sets each photo's size and position */
+.photo-wall--scattered {
+    display: block;
+}
+
+.photo-wall--scattered .photo-wall__item {
+    position: absolute;
+}
+
+.photo-wall__item {
+    margin: 0;
+}
+
+/* The hovered photo sits above its neighbours so its shadow isn't covered */
+.photo-wall__item:hover {
+    z-index: 1;
+}
+
+.photo-wall__frame {
+    --lift: 0; /* 0 at rest, 1 on hover; set by photo-wall.js */
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--color-divider);
+    cursor: zoom-in;
+    box-shadow: 0 calc(var(--lift) * 20px) calc(var(--lift) * 40px)
+        rgba(0, 0, 0, calc(var(--lift) * 0.225));
+}
+
+.photo-wall__frame:focus-visible {
+    outline: 2px solid var(--color-black);
+    outline-offset: 4px;
+}
+
+/* No ring right after the enlarged photo closes (see photo-wall.js) */
+.photo-wall__frame--quiet:focus-visible {
+    outline: none;
+}
+
+.photo-wall__frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.photo-wall__glare {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 50%),
+            #ffffff, rgba(255, 255, 255, 0) 60%);
+    opacity: calc(var(--lift) * 0.12);
+}
+
+.photo-wall__caption {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: var(--body3-weight);
+    line-height: 1.4;
+    color: var(--color-text-secondary);
+}
+
+/* The small photo hides while its large version is open */
+.photo-wall__item--open .photo-wall__frame {
+    visibility: hidden;
+}
+
+/* ── Enlarged photo ────────────────────────────────────────────────────── */
+.photo-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(17, 17, 17, 0);
+    cursor: zoom-out;
+    transition: background-color 0.35s ease;
+}
+
+.photo-viewer[hidden] {
+    display: none;
+}
+
+.photo-viewer:focus {
+    outline: none;
+}
+
+.photo-viewer--visible {
+    background: rgba(17, 17, 17, 0.88);
+}
+
+.photo-viewer__image {
+    display: block;
+    max-width: none;
+    border-radius: 4px;
+    transform-origin: top left;
+    transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.15s ease;
+}
+
+/* Fades out briefly while the next photo loads */
+.photo-viewer__image--switching {
+    opacity: 0;
+}
+
+.photo-viewer__arrow {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-top: -24px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    cursor: pointer;
+    opacity: 0;
+    transition: background-color 0.2s ease, opacity 0.35s ease;
+}
+
+.photo-viewer--visible .photo-viewer__arrow {
+    opacity: 1;
+}
+
+.photo-viewer__arrow:hover {
+    background: rgba(255, 255, 255, 0.24);
+}
+
+.photo-viewer__arrow:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.photo-viewer__arrow--prev {
+    left: 24px;
+}
+
+.photo-viewer__arrow--next {
+    right: 24px;
+}
+
+/* Phones: smaller arrows near the bottom, clear of the photo */
+@media (max-width: 799px) {
+    .photo-viewer__arrow {
+        top: auto;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+        margin-top: 0;
+    }
+
+    .photo-viewer__arrow--prev {
+        left: 16px;
+    }
+
+    .photo-viewer__arrow--next {
+        right: 16px;
+    }
+}
+
+.photo-viewer-open {
+    overflow: hidden;
 }
 
 /* ==========================================================================
    Tablet — max-width: 1279px
+   Unlike the other pages, About runs full width below the desktop container.
    ========================================================================== */
 @media (max-width: 1279px) {
+    .page--about {
+        max-width: none;
+    }
+
+    .page--about .header {
+        max-width: none;
+    }
+
     .about-hero {
-        padding: 120px 64px 60px;
-        gap: 80px;
+        padding: 109px 64px 0; /* 104px + 5px the header used to add */
+        grid-template-columns: 1fr 164px;
+        column-gap: 80px;
+        align-items: start;
+    }
+
+    .about-hero__intro {
+        gap: 16px;
+    }
+
+    .about-hero__story {
+        margin-top: 8px; /* + the 16px intro gap = 24px, as on desktop */
+    }
+
+    .about-hero__text {
+        font-size: 16px;
+        letter-spacing: -0.0128px;
     }
 
     .about-hero__portrait {
         width: 164px;
         height: 164px;
+        margin-top: 0;
     }
 
     .about-section {
-        padding: 64px;
+        padding: 64px 64px 0;
+        gap: 16px;
     }
 
+    /* Portrait column (164px) + gap (80px) */
+    /* 90% of the intro column width (page minus portrait 164px and gap 80px) */
     .about-section__item-desc {
+        max-width: calc((100% - 244px) * 0.9);
+    }
+
+    .about-section--values {
+        padding-top: 40px;
+    }
+
+    .about-section__title {
+        font-size: 30px;
+        letter-spacing: -0.18px;
+    }
+
+    .about-section__item-title {
+        font-size: 18px;
+        letter-spacing: -0.0648px;
+    }
+
+    .about-section__item-desc,
+    .about-strengths {
+        font-size: 16px;
+    }
+
+    .about-photos {
+        padding: 2px 64px 0;
+    }
+
+    .footer--about {
         max-width: none;
+        padding-left: 64px;
+        padding-right: 64px;
     }
 }
 
@@ -133,31 +432,49 @@
    ========================================================================== */
 @media (max-width: 799px) {
     .about-hero {
-        flex-direction: column-reverse;
-        padding: 80px 24px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
         align-items: flex-start;
-        gap: 40px;
+        gap: 16px;
+        padding: 107px 24px 0; /* 102px + 5px the header used to add */
     }
 
     .about-hero__portrait {
-        width: 120px;
-        height: 120px;
-    }
-
-    .about-hero__title {
-        font-size: 32px;
+        order: -1;
+        width: 176px;
+        height: 176px;
+        margin-bottom: 24px;
     }
 
     .about-section {
-        padding: 40px 24px;
-        gap: 48px;
+        padding: 64px 24px 0;
+    }
+
+    .about-section__item-desc,
+    .about-hero__text,
+    .about-strengths {
+        max-width: none;
+    }
+
+    .about-section--values {
+        padding-top: 40px;
+        padding-bottom: 0;
     }
 
     .about-section__title {
-        font-size: 28px;
+        font-size: 26px;
+        letter-spacing: -0.1352px;
+    }
+
+    /* On phones the section above has no bottom padding: 24px item + 40px */
+    .about-photos {
+        padding: 40px 24px 0;
     }
 
     .footer--about {
-        padding: 64px 24px;
+        max-width: none;
+        height: auto;
+        padding: 20px 24px 70px;
     }
 }
