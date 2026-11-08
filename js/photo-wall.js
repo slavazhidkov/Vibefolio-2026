@@ -181,15 +181,26 @@
   viewer.innerHTML =
     '<img class="photo-viewer__image" alt="" />' +
     `<button class="photo-viewer__arrow photo-viewer__arrow--prev" type="button" aria-label="Previous photo">${arrow("M15 5l-7 7 7 7")}</button>` +
-    `<button class="photo-viewer__arrow photo-viewer__arrow--next" type="button" aria-label="Next photo">${arrow("M9 5l7 7-7 7")}</button>`;
+    `<button class="photo-viewer__arrow photo-viewer__arrow--next" type="button" aria-label="Next photo">${arrow("M9 5l7 7-7 7")}</button>` +
+    `<button class="photo-viewer__arrow photo-viewer__close" type="button" aria-label="Close photo">${arrow("M6 6l12 12M18 6L6 18")}</button>`;
   document.body.append(viewer);
 
-  const large = viewer.querySelector(".photo-viewer__image");
+  let large = viewer.querySelector(".photo-viewer__image");
   let openPhoto = null;
   let closing = false;
   let switching = false;
 
   const thumbnailOf = (photo) => photo.querySelector("img");
+
+  // Each photo gets a fresh image element. Reusing one and swapping its src
+  // and size leaves the previous photo painted behind it in iOS Safari.
+  const replaceImage = (startHidden) => {
+    const image = document.createElement("img");
+    image.className = "photo-viewer__image";
+    if (startHidden) image.classList.add("photo-viewer__image--switching");
+    large.replaceWith(image);
+    large = image;
+  };
 
   // Sizes the large image: real size, shrunk to fit the screen if needed
   const fitToScreen = (photo) => {
@@ -234,6 +245,7 @@
   };
 
   function open(photo) {
+    replaceImage(false);
     fitToScreen(photo);
     openPhoto = photo;
     viewer.hidden = false;
@@ -265,13 +277,16 @@
       openPhoto.classList.remove("photo-wall__item--open");
       next.classList.add("photo-wall__item--open");
       openPhoto = next;
+      replaceImage(!reducedMotion);
       fitToScreen(next);
       preloadNeighbours(next);
+      const image = large;
       const reveal = () => {
-        large.classList.remove("photo-viewer__image--switching");
+        image.getBoundingClientRect(); // start the fade from fully hidden
+        image.classList.remove("photo-viewer__image--switching");
         switching = false;
       };
-      large.decode ? large.decode().then(reveal, reveal) : reveal();
+      image.decode ? image.decode().then(reveal, reveal) : reveal();
     };
 
     if (reducedMotion) {
@@ -330,6 +345,10 @@
     photo.querySelector(".photo-wall__frame").addEventListener("click", () => open(photo));
   });
 
+  viewer.querySelector(".photo-viewer__close").addEventListener("click", (event) => {
+    event.stopPropagation();
+    close();
+  });
   viewer.querySelector(".photo-viewer__arrow--prev").addEventListener("click", (event) => {
     event.stopPropagation();
     go(-1);

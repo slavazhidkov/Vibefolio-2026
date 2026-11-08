@@ -324,6 +324,13 @@
     right: 24px;
 }
 
+/* Close button: same round style, in the top right corner */
+.photo-viewer__close {
+    top: 24px;
+    right: 24px;
+    margin-top: 0;
+}
+
 /* Phones: smaller arrows near the bottom, clear of the photo */
 @media (max-width: 799px) {
     .photo-viewer__arrow {
@@ -340,6 +347,12 @@
 
     .photo-viewer__arrow--next {
         right: 16px;
+    }
+
+    .photo-viewer__close {
+        top: 16px;
+        right: 16px;
+        bottom: auto;
     }
 }
 
