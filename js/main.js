@@ -47,10 +47,40 @@ function whenSized(el, callback) {
 
 const CARD_VIDEO_FADE = 300;
 
+// Touch screens: each video plays while at least half its card is visible and
+// pauses when it scrolls away. The thumbnail stays up until the video is
+// actually playing (iOS Low Power Mode blocks autoplay, so it just stays).
+function playCardVideosOnScreen() {
+  const videos = document.querySelectorAll(".card__video");
+  if (!videos.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target.querySelector(".card__video");
+        if (entry.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  videos.forEach((video) => {
+    video.addEventListener("playing", () => video.classList.add("card__video--visible"));
+    observer.observe(video.closest(".card"));
+  });
+}
+
+// Card videos: on devices with a mouse or trackpad they play on hover; on
+// touch screens, which can't hover, they play while the card is on screen
 function setUpCardVideos() {
   const canHover = window.matchMedia("(hover: hover)").matches;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!canHover || reducedMotion) return;
+  if (reducedMotion) return;
+  if (!canHover) {
+    playCardVideosOnScreen();
+    return;
+  }
 
   document.querySelectorAll(".card__video").forEach((video) => {
     const card = video.closest(".card");
