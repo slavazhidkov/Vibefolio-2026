@@ -249,6 +249,11 @@
     fitToScreen(photo);
     openPhoto = photo;
     viewer.hidden = false;
+    // Locking the page scroll removes the scrollbar where it takes up space
+    // (e.g. "Show scroll bars: Always" on macOS, or a mouse plugged in), which
+    // would shift the centred content sideways. Fill its width to keep it still.
+    const scrollbar = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollbar > 0) document.documentElement.style.paddingRight = `${scrollbar}px`;
     document.documentElement.classList.add("photo-viewer-open");
 
     if (!reducedMotion) {
@@ -312,6 +317,7 @@
       large.style.transition = "";
       photo.classList.remove("photo-wall__item--open");
       document.documentElement.classList.remove("photo-viewer-open");
+      document.documentElement.style.paddingRight = "";
       // Focus returns to the small photo for keyboard users, without drawing the
       // focus ring at that moment (Safari ignores focusVisible, hence the class).
       // The ring comes back as soon as they press Tab or focus moves on.
