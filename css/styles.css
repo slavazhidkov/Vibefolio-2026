@@ -288,11 +288,14 @@ img {
     padding-bottom: 32px;
 }
 
+/* Title on the first row; description and year share the second row, with the
+   year on the baseline of the description's first line */
 .experience__row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    column-gap: 24px;
+    row-gap: 8px;
     padding-bottom: 23px;
     border-bottom: 1px solid var(--color-divider);
     transition: transform 300ms ease;
@@ -303,11 +306,17 @@ img {
     transform: translateY(-4px);
 }
 
+/* Lets the title and description sit directly in the row's grid */
 .experience__details {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    flex: 1;
+    display: contents;
+}
+
+.experience__title {
+    grid-column: 1;
+}
+
+.experience__description {
+    grid-column: 1;
 }
 
 .experience__title {
@@ -333,9 +342,10 @@ img {
     line-height: var(--body3-line-height);
     letter-spacing: -0.0128px;
     color: var(--color-text-secondary);
+    grid-column: 2;
+    grid-row: 2;
     text-align: right;
     white-space: nowrap;
-    flex-shrink: 0;
 }
 
 /* ==========================================================================
