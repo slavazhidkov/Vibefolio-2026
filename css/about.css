@@ -466,8 +466,8 @@
 
     .about-hero__portrait {
         order: -1;
-        width: 176px;
-        height: 176px;
+        width: 123px; /* 30% smaller than the 176px it was */
+        height: 123px;
         margin-bottom: 24px;
     }
 
